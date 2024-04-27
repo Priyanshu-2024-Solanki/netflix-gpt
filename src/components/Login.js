@@ -3,14 +3,13 @@ import Header from "./Header";
 import { checkValidateData } from "../utils/validate";
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { LOGIN_PAGE_BG } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
 
   const toggleForm = () => {
     setSignInForm(!isSignInForm);
@@ -33,9 +32,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           // Signed up
-          const user = userCredential.user;
-          // console.log(user);
-          navigate('/browse');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -46,9 +42,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           // Signed in
-          const user = userCredential.user;
-          // console.log(user);
-          navigate('/browse');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -63,7 +56,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9f46b569-aff7-4975-9b8e-3212e4637f16/453ba2a1-6138-4e3c-9a06-b66f9a2832e4/IN-en-20240415-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={LOGIN_PAGE_BG}
           alt="main"
         ></img>
       </div>
