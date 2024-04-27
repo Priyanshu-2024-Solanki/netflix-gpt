@@ -7,3 +7,5 @@ export const checkValidateData = (email , password) => {
 
     return null
 }
+
+export const IMAGE_CDN = "https://image.tmdb.org/t/p/w500";
