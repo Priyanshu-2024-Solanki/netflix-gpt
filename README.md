@@ -103,6 +103,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - TMDB Image CDN url
 - Updated UI
 - Added Custom hooks for movies
+- GPT Search Page
+- GPT Search Bar
+- Multi-language feature 
 
 # Features 
 - Browse (after authentication)
